@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import requests
 
-# class ReAPIView():
 
 # Create your views here.
 def merchants(request):
@@ -21,3 +20,7 @@ def merchant(request, merchant_id):
   return render(request, "merchantItems.html", {'merchant': merchant['data'], 
   												'merchantItems': merchantItems['data']})
 
+def item(request, item_id):
+  response = requests.get("http://localhost:3000/api/v1/items/{item_id}".format(item_id=item_id))
+  item = response.json()
+  return render(request, "item.html", {'item': item['data']})

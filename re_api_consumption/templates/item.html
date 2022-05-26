@@ -11,27 +11,29 @@
   </head>
   <body>
       <div class="container-fluid p-2 bg-primary text-white text-center">
-          <h1>{{merchant.attributes.name}}'s Items:</h1>
+          <h1>Item</h1>
       </div>
 
       <div class="container mt-5">
                   <table class="table">
                       <thead>
                           <tr>
-                              <th>Id</th>
                               <th>Name</th>
+                              <th>Description</th>
+                              <th>Unit Price</th>
                           </tr>
                       </thead>
                       <tbody>
-                          {% for item in merchantItems %}
                           <tr>
-                              <td>{{ item.id }}</td>
-                              <td><a href="{% url 'item' item.id %}">{{ item.attributes.name }}</td>
+                              <td>{{ item.attributes.name }}</td>
+                              <td>{{ item.attributes.description }}</td>
+                              <td>{{ item.attributes.unit_price }}</td>
                           </tr>
-                          {% endfor %}    
+
                       </tbody>
                   </table>
              </div>
-
+          </div>
+      </div>
    </body>
 </html>
