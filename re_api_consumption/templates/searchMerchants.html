@@ -10,21 +10,14 @@
       <title>Consume Rest Api</title>
   </head>
   <body>
+    {% if merchants == "N/a" %}
       <div class="container-fluid p-2 bg-primary text-white text-center">
-          <h1>Merchants</h1>
+          <h1>No keyword entered</h1>
       </div><br>
-      <form action="{% url 'search' %}" 
-            data-hx-post="{% url 'search' %}" 
-            data-hx-target="#your-container-id"
-            data-hx-swap="innerHTML"
-            method="GET">
-            {{form.as_table}}
-            {% csrf_token %}
-            <input type="text" name="search" placeholder="Search by name" value="{{request.GET.title}}">
-            <input type="submit" value="Search">
-      </form>
-
-
+    {% else %}
+      <div class="container-fluid p-2 bg-primary text-white text-center">
+          <h1>Merchants matches keyword "{{keyword}}"</h1>
+      </div><br>
 
       <div class="container mt-5">
                   <table class="table">
@@ -46,5 +39,6 @@
              </div>
           </div>
       </div>
+    {% endif %}
    </body>
 </html>
