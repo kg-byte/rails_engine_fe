@@ -38,4 +38,5 @@ def search(request):
   else:
     response = requests.get("http://localhost:3000/api/v1/merchants/find_all?name={name}".format(name=name))
     merchants=response.json()['data']
-  return render(request, "searchMerchants.html", {'merchants': merchants})
+  return render(request, "searchMerchants.html", {'merchants': merchants,
+  												  'keyword': name})
