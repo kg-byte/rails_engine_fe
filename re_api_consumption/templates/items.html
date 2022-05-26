@@ -11,20 +11,8 @@
   </head>
   <body>
       <div class="container-fluid p-2 bg-primary text-white text-center">
-          <h1>Merchants</h1>
-      </div><br>
-      <form action="{% url 'search' %}" 
-            data-hx-post="{% url 'search' %}" 
-            data-hx-target="#your-container-id"
-            data-hx-swap="innerHTML"
-            method="GET">
-            {{form.as_table}}
-            {% csrf_token %}
-            <input type="text" name="search" placeholder="Search by name" value="{{request.GET.title}}">
-            <input type="submit" value="Search">
-      </form>
-
-
+          <h1>List of Items:</h1>
+      </div>
 
       <div class="container mt-5">
                   <table class="table">
@@ -35,16 +23,15 @@
                           </tr>
                       </thead>
                       <tbody>
-                          {% for merchant in merchants %}
+                          {% for item in items %}
                           <tr>
-                              <td>{{ merchant.id }}</td>
-                              <td><a href="{% url 'merchant' merchant.id %}">{{ merchant.attributes.name }}</a></td>
+                              <td>{{ item.id }}</td>
+                              <td><a href="{% url 'item' item.id %}">{{ item.attributes.name }}</td>
                           </tr>
                           {% endfor %}    
                       </tbody>
                   </table>
              </div>
-          </div>
-      </div>
+
    </body>
 </html>
