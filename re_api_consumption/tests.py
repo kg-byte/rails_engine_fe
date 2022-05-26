@@ -2,16 +2,12 @@ from django.test import TestCase
 
 # Create your tests here.
 
-# class ReAPIView(TestCase)
+def test_merchants(self):
+	response=self.client.get('/merchants')
+	self.assertEqual(response.status_code, 200)
+	self.assertContains(response, 'Schroeder-Jerde')
 
-class SomeTest(TestCase):
-
-	def test_merchants(self):
-		response=self.client.get('/merchants')
-		self.assertEqual(response.status_code, 200)
-		self.assertContains(response, 'Schroeder-Jerde')
-
-    def test_merchant(self, 1):
-    	response=self.client.get('/merchants/1')
-    	self.assertEqual(response.status_code, 200)
-    	self.assertContains(resposne, '')
+def test_merchant(self, 1):
+	response=self.client.get('/merchants/1')
+	self.assertEqual(response.status_code, 200)
+	self.assertContains(resposne, '')
