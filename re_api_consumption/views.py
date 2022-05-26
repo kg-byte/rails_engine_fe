@@ -7,7 +7,6 @@ import requests
 def merchants(request):
   response = requests.get('http://localhost:3000/api/v1/merchants')
   merchants = response.json()
-  #print(merchants)
   # import ipdb; ipdb.set_trace()
   return render(request, "merchants.html", {'merchants': merchants['data']})
   pass
@@ -24,3 +23,19 @@ def item(request, item_id):
   response = requests.get("http://localhost:3000/api/v1/items/{item_id}".format(item_id=item_id))
   item = response.json()
   return render(request, "item.html", {'item': item['data']})
+
+
+def items(request):
+  response = requests.get("http://localhost:3000/api/v1/items")
+  items = response.json()
+  return render(request, "items.html", {'items': items['data']})
+
+
+def search(request):
+  name = request.GET.get('search')
+  if name == '':
+    merchants = 'N/a'
+  else:
+    response = requests.get("http://localhost:3000/api/v1/merchants/find_all?name={name}".format(name=name))
+    merchants=response.json()['data']
+  return render(request, "searchMerchants.html", {'merchants': merchants})

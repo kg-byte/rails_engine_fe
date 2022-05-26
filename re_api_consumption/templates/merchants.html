@@ -12,7 +12,19 @@
   <body>
       <div class="container-fluid p-2 bg-primary text-white text-center">
           <h1>Merchants</h1>
-      </div>
+      </div><br>
+      <form action="{% url 'search' %}" 
+            data-hx-post="{% url 'search' %}" 
+            data-hx-target="#your-container-id"
+            data-hx-swap="innerHTML"
+            method="GET">
+            {{form.as_table}}
+            {% csrf_token %}
+            <input type="text" name="search" placeholder="Search by title" value="{{request.GET.title}}">
+            <input type="submit" value="Search">
+      </form>
+
+
 
       <div class="container mt-5">
                   <table class="table">
