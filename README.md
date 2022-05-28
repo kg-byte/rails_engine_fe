@@ -2,7 +2,7 @@
 <!-- ABOUT THE PROJECT -->
 # Rails Engine
 ## About This Project
-*Rails Engine FE* is a Django Application that consumes several endpoints rendered by *[Rails Engine Repository](https://github.com/kg-byte/rails-engine)*. The purpose of this project is to demonstrate Service Oriented Architecture where font-end and back-end team chose to build their applications using different languages. It should be noted that no template/feature testing has been implemented for the interest of time, which will be a potential refactoring opportunity for a later time.
+*Rails Engine FE* is a Django Application that consumes several endpoints rendered by *[Rails Engine Repository](https://github.com/kg-byte/rails-engine)*. The purpose of this project is to demonstrate Service Oriented Architecture where font-end and back-end team chose to build their applications using different programming languages. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
